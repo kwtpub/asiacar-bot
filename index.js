@@ -64,22 +64,7 @@ function showCar(chatId, brand, index) {
     const photo = car.photo;
     const caption = `${car.model}\nЦена: ${car.price}`;
 
-    // Клавиатура для листания
-    const carNavigation = {
-        reply_markup: {
-            inline_keyboard: [
-                [
-                    { text: '⬅️', callback_data: `prev_${brand}_${index}` },
-                    { text: '➡️', callback_data: `next_${brand}_${index}` }
-                ],
-                [{ text: '⬅️ Назад к маркам', callback_data: 'back_to_brands' }]
-            ]
-        }
-    };
-
-    // Отправляем фото и описание
-    bot.sendPhoto(chatId, photo, { caption, ...carNavigation });
-}
+    // Клавиатура дл
 
 // Обработчик inline-кнопок
 bot.on('callback_query', (query) => {
