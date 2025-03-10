@@ -2,6 +2,23 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = '7917935318:AAEO9XD9nuddOjmMeOlWEDAaYKM8fZiqJGA';
 const bot = new TelegramBot(token, { polling: true });
 
+
+const carsData = {
+    'BMW': [
+        { model: 'BMW X5', price: '$50,000', photo: 'https://example.com/bmw_x5.jpg' },
+        { model: 'BMW X3', price: '$40,000', photo: 'https://example.com/bmw_x3.jpg' }
+    ],
+    'Audi': [
+        { model: 'Audi A4', price: '$45,000', photo: 'https://example.com/audi_a4.jpg' },
+        { model: 'Audi Q7', price: '$60,000', photo: 'https://example.com/audi_q7.jpg' }
+    ],
+    'Mercedes-Benz': [
+        { model: 'Mercedes-Benz C-Class', price: '$55,000', photo: 'https://example.com/mercedes_c_class.jpg' },
+        { model: 'Mercedes-Benz GLE', price: '$70,000', photo: 'https://example.com/mercedes_gle.jpg' }
+    ]
+};
+
+
 // Главное меню
 const mainMenu = {
     reply_markup: {
@@ -25,7 +42,7 @@ bot.onText(/\/start/, (msg) => {
 });
 
 // Обработчик текстовых сообщений
-bot.on('message', (mзsg) => {
+bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
 
